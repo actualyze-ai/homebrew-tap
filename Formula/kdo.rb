@@ -5,31 +5,34 @@
 class Kdo < Formula
   desc "AI-powered SDLC automation platform"
   homepage "https://github.com/actualyze-ai/kdo"
-  version "0.1.0-alpha.1"
+  version "0.1.0-alpha.2"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.1/kdo_0.1.0-alpha.1_darwin_all.tar.gz"
-    sha256 "8b5f08dc29ac8750efc7ac2b0c4d35779417b8498669a7d9ff37432caebb3f33"
+    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.2/kdo_0.1.0-alpha.2_darwin_all.tar.gz"
+    sha256 "2f1d419bccbb069ea8c5ae04a6d85d5b72da618ea446f73352e01feef3be4029"
 
     def install
       bin.install "kdo"
+      man1.install "docs/man/kdo.1"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.1/kdo_0.1.0-alpha.1_linux_amd64.tar.gz"
-      sha256 "3a62ef9a0405fb1b2f8b6bc4ae826fc9fcc9b6cc3e3314080546486a0e0bced3"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.2/kdo_0.1.0-alpha.2_linux_amd64.tar.gz"
+      sha256 "64e809f671e573825ff3cc8ae767fefed88c2452ef15d194c35d20916d10e7e9"
       def install
         bin.install "kdo"
+        man1.install "docs/man/kdo.1"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.1/kdo_0.1.0-alpha.1_linux_arm64.tar.gz"
-      sha256 "b39bd6658dd35d73e05f831c38ff9dd6983a4d009b4836490acf7e557d623443"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.2/kdo_0.1.0-alpha.2_linux_arm64.tar.gz"
+      sha256 "77dfdacaa0f59e5dbbf06ee175df2abedd090522d171d652c77645ee827e1087"
       def install
         bin.install "kdo"
+        man1.install "docs/man/kdo.1"
       end
     end
   end
@@ -50,6 +53,8 @@ class Kdo < Formula
         export OPENROUTER_API_KEY="your-api-key"
         kdo install
         kdo start
+
+      Man page installed. View with: man kdo
     EOS
   end
 
