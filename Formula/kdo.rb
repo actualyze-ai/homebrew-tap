@@ -5,12 +5,12 @@
 class Kdo < Formula
   desc "AI-powered SDLC automation platform"
   homepage "https://github.com/actualyze-ai/kdo"
-  version "0.1.0-alpha.4"
+  version "0.0.0"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.4/kdo_0.1.0-alpha.4_darwin_all.tar.gz"
-    sha256 "2e247137cf021f38e749d6ece0d3aa52a3119f83595408c05719caf9e5e4e400"
+    url "https://github.com/actualyze-ai/kdo/releases/download/v0.0.0/kdo_0.0.0_darwin_all.tar.gz"
+    sha256 "6e07ee75d9109647889a20aa5c0501ae79e3ed37eb7fa7316178848cc7d2e1d0"
 
     def install
       bin.install "kdo"
@@ -19,19 +19,38 @@ class Kdo < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.4/kdo_0.1.0-alpha.4_linux_amd64.tar.gz"
-      sha256 "a0405c9f953d68ac5a032b49a141148507a7a4194030564bee07da0dd02b3801"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.0.0/kdo_0.0.0_linux_amd64.tar.gz"
+      sha256 "cdb9168105d930766cc424dbd49c18fe346a1cefacf25d8b3a9c32fc9cdb2bdf"
       def install
         bin.install "kdo"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.4/kdo_0.1.0-alpha.4_linux_arm64.tar.gz"
-      sha256 "110145ba2ff9acc449fcb037a573d34d8f605b248c5ca59ed484024e55e7ff30"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.0.0/kdo_0.0.0_linux_arm64.tar.gz"
+      sha256 "df8e9e0c76abcb902cbebba09e00aefc9ede85ec3d0acad885a1ecb0837b80e0"
       def install
         bin.install "kdo"
       end
     end
+  end
+
+  # Clean up containers, images, and data before uninstalling binary
+  def uninstall
+    if File.executable?("#{bin}/kdo")
+      system "#{bin}/kdo", "uninstall", "--force"
+    end
+    super
+  end
+
+  def caveats
+    <<~EOS
+      kdo requires Docker to be running.
+
+      To get started:
+        export OPENROUTER_API_KEY="your-api-key"
+        kdo install
+        kdo start
+    EOS
   end
 
   test do
