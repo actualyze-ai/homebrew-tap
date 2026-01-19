@@ -5,12 +5,12 @@
 class Kdo < Formula
   desc "AI-powered SDLC automation platform"
   homepage "https://github.com/actualyze-ai/kdo"
-  version "0.1.0-alpha.2"
+  version "0.1.0-alpha.3"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.2/kdo_0.1.0-alpha.2_darwin_all.tar.gz"
-    sha256 "304f2acef487a51db5459f763793ffcbb7581ce43e947c41326d3fffe3d2e164"
+    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.3/kdo_0.1.0-alpha.3_darwin_all.tar.gz"
+    sha256 "54fe908678ddf91d2cb6e67d19339b94df24bc3735d688ed883eb95b8ceeba97"
 
     def install
       bin.install "kdo"
@@ -19,15 +19,15 @@ class Kdo < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.2/kdo_0.1.0-alpha.2_linux_amd64.tar.gz"
-      sha256 "245d7866228ebd5e8d905dbd42ce6ae83f45876a197c379aace154accac101df"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.3/kdo_0.1.0-alpha.3_linux_amd64.tar.gz"
+      sha256 "2fcf32ffa5ecb9c3a041a62887b6d6b1fbda9e2d017309a2a967a7b33a7fee43"
       def install
         bin.install "kdo"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.2/kdo_0.1.0-alpha.2_linux_arm64.tar.gz"
-      sha256 "6f6b125d63fc09dbf0f3e9ae7e35ac9228b1d5c29cddcf8ad5c57152b2467eca"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.3/kdo_0.1.0-alpha.3_linux_arm64.tar.gz"
+      sha256 "991834faba7481b43c9f1aed5e59724f73425b1b4cde402e5409db25d3f8f2ae"
       def install
         bin.install "kdo"
       end
