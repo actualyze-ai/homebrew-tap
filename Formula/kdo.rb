@@ -10,7 +10,7 @@ class Kdo < Formula
 
   on_macos do
     url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.4/kdo_0.1.0-alpha.4_darwin_all.tar.gz"
-    sha256 "3ba1cb17c52aea8156ac83bd3f1bdda4f66a7c2a06b4e1be41fade868b5b7d81"
+    sha256 "c822caae3e1329fc58f62098557444a143d5cd799c6dda234607a41e1325deea"
 
     def install
       bin.install "kdo"
@@ -21,7 +21,7 @@ class Kdo < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.4/kdo_0.1.0-alpha.4_linux_amd64.tar.gz"
-      sha256 "c14192ff574eedb9c924a0d138d6881099fc27160bdd63ae71fe82c6584e45b1"
+      sha256 "c808e028fbfd9e4150829d59af0b65bfe602ba2c8e79ceb7a4f4ac071a21445a"
       def install
         bin.install "kdo"
         man1.install "docs/man/kdo.1"
@@ -29,7 +29,7 @@ class Kdo < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0-alpha.4/kdo_0.1.0-alpha.4_linux_arm64.tar.gz"
-      sha256 "c3ec0721466b0abdc8149261bd73e25c1dcdc65e81fb42fee14f56a008d6d116"
+      sha256 "ecaa95bce0d6b4634ace2f98943cac890876304f7b228efe7977fd1849f6fb5b"
       def install
         bin.install "kdo"
         man1.install "docs/man/kdo.1"
