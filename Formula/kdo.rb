@@ -5,34 +5,31 @@
 class Kdo < Formula
   desc "AI-powered SDLC automation platform"
   homepage "https://github.com/actualyze-ai/kdo"
-  version "0.1.0"
+  version "0.0.0"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0/kdo_0.1.0_darwin_all.tar.gz"
-    sha256 "3c442802dfc936fe152f6abd3f29f3ce17ae7d0cbf716b758d94ffccf8e2c411"
+    url "https://github.com/actualyze-ai/kdo/releases/download/v0.0.0/kdo_0.0.0_darwin_all.tar.gz"
+    sha256 "b69c4a7eb8dae96cc75eae51b7f7b1ce4c528072fa1de537f4ac5d41caba863a"
 
     def install
       bin.install "kdo"
-      man1.install "docs/man/kdo.1"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0/kdo_0.1.0_linux_amd64.tar.gz"
-      sha256 "4d3d113b51686569b1dc6d8684bf8353078f349043ff0bfc60eb1a277c4004f7"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.0.0/kdo_0.0.0_linux_amd64.tar.gz"
+      sha256 "9047a8a9aceaf87628eca0847d7310c9fa004d298f5aeb114e2fe3594f4bd546"
       def install
         bin.install "kdo"
-        man1.install "docs/man/kdo.1"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.0/kdo_0.1.0_linux_arm64.tar.gz"
-      sha256 "47216993d1768ef7d76752c3b34844e4bb0a91cd65a2f99ce75c08803fa8e894"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.0.0/kdo_0.0.0_linux_arm64.tar.gz"
+      sha256 "cf40a9b48dedcd3c7b716c33e3085d2d05726c846afb5f007f4617e4877d787c"
       def install
         bin.install "kdo"
-        man1.install "docs/man/kdo.1"
       end
     end
   end
@@ -53,8 +50,6 @@ class Kdo < Formula
         export OPENROUTER_API_KEY="your-api-key"
         kdo install
         kdo start
-
-      Man page installed. View with: man kdo
     EOS
   end
 
