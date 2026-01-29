@@ -5,12 +5,12 @@
 class Kdo < Formula
   desc "AI-powered SDLC automation platform"
   homepage "https://github.com/actualyze-ai/kdo"
-  version "0.1.1-alpha.1"
+  version "0.1.1-alpha.2"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.1-alpha.1/kdo_0.1.1-alpha.1_darwin_all.tar.gz"
-    sha256 "9637f56d7c1b8b7fb0fe8023c0f67c827f37d8e77f52b71a28f7021e989998d1"
+    url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.1-alpha.2/kdo_0.1.1-alpha.2_darwin_all.tar.gz"
+    sha256 "b5b9a938dca1612ef58409732d0d449d079607508cb54e24093039337f1faea3"
 
     def install
       bin.install "kdo"
@@ -20,16 +20,16 @@ class Kdo < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.1-alpha.1/kdo_0.1.1-alpha.1_linux_amd64.tar.gz"
-      sha256 "1b3f69297ff3e80a64c189ab9dd226c8d642440a30a0b1b37869a29fab5d5bfc"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.1-alpha.2/kdo_0.1.1-alpha.2_linux_amd64.tar.gz"
+      sha256 "b1cd101d93e62dc318f077a8d2d0b7f91531b5434c871829036f0ef960c4b65c"
       def install
         bin.install "kdo"
         man1.install "docs/man/kdo.1"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.1-alpha.1/kdo_0.1.1-alpha.1_linux_arm64.tar.gz"
-      sha256 "965734d15b6ec6684296b6058b64cc759490fdd769ca9929e1e823205a09ec1a"
+      url "https://github.com/actualyze-ai/kdo/releases/download/v0.1.1-alpha.2/kdo_0.1.1-alpha.2_linux_arm64.tar.gz"
+      sha256 "2e82bc92895f3d123959c8745e03c978d557ce14b2817f2e4f462c844d1e6cb7"
       def install
         bin.install "kdo"
         man1.install "docs/man/kdo.1"
@@ -37,21 +37,13 @@ class Kdo < Formula
     end
   end
 
-  # Clean up containers, images, and data before uninstalling binary
-  def uninstall
-    if File.executable?("#{bin}/kdo")
-      system "#{bin}/kdo", "uninstall", "--force"
-    end
-    super
-  end
-
   def caveats
     <<~EOS
-      kdo requires Docker to be running.
+      kdo requires OpenCode to be installed separately.
+      Install OpenCode from: https://github.com/sst/opencode
 
       To get started:
         export OPENROUTER_API_KEY="your-api-key"
-        kdo install
         kdo start
 
       Man page installed. View with: man kdo
